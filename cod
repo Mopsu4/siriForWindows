@@ -1,0 +1,487 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.IO;
+using System.Drawing;
+using System.Threading.Tasks;
+using MetroFramework.Forms;
+using System.Windows.Forms.PropertyGridInternal;
+using MetroFramework.Components;
+using Microsoft.Speech;
+using MetroFramework.Controls;
+using Microsoft.Speech.Recognition;
+using System.Linq;
+using System.Diagnostics;
+using System.Text;
+using Microsoft.Speech.Recognition.SrgsGrammar;
+using System.Windows.Forms;
+
+namespace _1last
+{
+    public partial class Form2 : MetroForm
+    {
+        public Form2()
+        {
+            InitializeComponent();
+        }
+        static Label l1;
+        static Label l2;
+
+
+
+        private void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+
+
+
+            string sd1 = Convert.ToString("Здраствуй");
+            string sd2 = Convert.ToString("Выйди из программы!");
+            string sd3 = Convert.ToString("Майкрософт");
+            string sd4 = Convert.ToString("Время?");
+            string sd5 = Convert.ToString("Калькулятор!");
+            string sd6 = Convert.ToString("Блокнот!");
+            string sd7 = Convert.ToString("Браузер!");
+            string sd8 = Convert.ToString("Фейсбук");
+            string sd9 = Convert.ToString("Хочу рисовать!");
+            string sd10 = Convert.ToString("Яндекс");
+            string sd11 = Convert.ToString("Википедия");
+            string sd12 = Convert.ToString("Шутка");
+
+            string q1 = Convert.ToString("Твитер");
+            string q2 = Convert.ToString("Джум!");
+            string q3 = Convert.ToString("Алиекспрес!");
+            string q4 = Convert.ToString("Электронная почта!");
+            string q5 = Convert.ToString("Карта!");
+            string q6 = Convert.ToString("АвтоРио!");
+            string q7 = Convert.ToString("Любишь мечтать?");
+            string q8 = Convert.ToString("Кто ты?!");
+            string q9 = Convert.ToString("АвтоРу!");
+            string q10 = Convert.ToString("Выйди!");
+
+            string w1 = Convert.ToString("Реддит!");
+            string w2 = Convert.ToString("Инстаграм!");
+            string w3 = Convert.ToString("Ютуб!");
+            string w4 = Convert.ToString("Смотреть фильмы!");
+            string w5 = Convert.ToString("Смотреть сериалы!");
+            string w6 = Convert.ToString("Смотреть мультфильмы");
+            string w7 = Convert.ToString("Смотреть клипы!");
+            string w8 = Convert.ToString("Слушать музыку!");
+            string w9 = Convert.ToString("Смотреть аниме!");
+            string w10 = Convert.ToString("Слушать русскую музыку!");
+            string w11 = Convert.ToString("Слушать зарубежную музыку!");
+
+            string e1 = Convert.ToString("Фильмы!");
+            string e2 = Convert.ToString("Сериалы!");
+            string e3 = Convert.ToString("Мультфильмы!");
+            string e4 = Convert.ToString("Аниме!");
+            string e5 = Convert.ToString("Русская музыка");
+            string e6 = Convert.ToString("Зарубежная музыка!");
+            string e7 = Convert.ToString("Онлайн игры!");
+            string e8 = Convert.ToString("Калькулятор валют!");
+            string e9 = Convert.ToString("Погода в России!");
+            string e10 = Convert.ToString("Погода в Украине!");
+            string e11 = Convert.ToString("Погода в Белоруссии!");
+
+            string r1 = Convert.ToString("Переводчик!");
+            string r2 = Convert.ToString("Фотошоп онлайн!");
+            string r3 = Convert.ToString("ВКонтакте!");
+            string r4 = Convert.ToString("Таймер!");
+            string r5 = Convert.ToString("");
+            string r6 = Convert.ToString("");
+            string r7 = Convert.ToString("");
+            string r8 = Convert.ToString("");
+            string r9 = Convert.ToString("");
+            string r10 = Convert.ToString("");
+            
+
+            if (e.Result.Confidence > 0.83) l1.Text = e.Result.Text;
+
+            if (l1.Text == sd1)
+            {
+                l2.Text = Convert.ToString("Ну, здравствуй. Спасибо, что приходишь.");
+            }
+            if (l1.Text == sd2)
+            {
+
+                Environment.Exit(0);
+            }
+            if (l1.Text == sd3)
+            {
+                System.Diagnostics.Process.Start("https://www.microsoft.com/");
+                l2.Text = Convert.ToString("Открываю Microsoft ");
+            }
+            if (l1.Text == sd4)
+
+                l2.Text = Convert.ToString(DateTime.Now.ToString("dd MMMM yyyy | HH:mm:ss"));
+            {
+
+            }
+            if (l1.Text == sd5)
+            {
+                System.Diagnostics.Process p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = @"calc.exe";
+                p.Start();
+                l2.Text = Convert.ToString("Открывают калькулятор");
+            }
+            if (l1.Text == sd6)
+            {
+                System.Diagnostics.Process p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = @"notepad.exe";
+                p.Start();
+                l2.Text = Convert.ToString("Открываю блокнот");
+            }
+            if (l1.Text == sd7)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com/");
+                l2.Text = Convert.ToString("Открываю браузер");
+
+            }
+            if (l1.Text == sd8)
+            {
+                System.Diagnostics.Process.Start("https://www.facebook.com/");
+                l2.Text = Convert.ToString("Открываю Facebook");
+            }
+            if (l1.Text == sd9)
+            {
+                System.Diagnostics.Process p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = @"mspaint.exe";
+                p.Start();
+                l2.Text = Convert.ToString("Открываю Paint");
+            }
+
+            if (l1.Text == sd10)
+            {
+                System.Diagnostics.Process.Start("https://yandex.ua/");
+                l2.Text = Convert.ToString("Открываю Yandex");
+            }
+            if (l1.Text == sd11)
+            {
+                 System.Diagnostics.Process.Start("https://ru.wikipedia.org");
+                l2.Text = Convert.ToString("Открываю Wikipedia");
+            }
+            if (l1.Text == sd12)
+            {
+                Random rnd = new Random();
+                int i = rnd.Next(1, 3);
+                if (i == 3)
+                {
+                    l2.Text = Convert.ToString("Колобок повесился");
+                }
+                if (i == 2)
+                {
+                    l2.Text = Convert.ToString("Буратино утонул");
+                }
+                if (i == 1)
+                {
+                    l2.Text = Convert.ToString("Одесса - столица Зимней Олимпиады!");
+                }
+            }
+            if (l1.Text == q1)
+            {
+                 System.Diagnostics.Process.Start("https://twitter.com/");
+                 l2.Text = Convert.ToString("Открываю Twitter");
+            }
+
+            if (l1.Text == q2)
+            {
+                System.Diagnostics.Process.Start("https://www.joom.com");
+                l2.Text = Convert.ToString("Открываю Joom");
+            }
+            if (l1.Text == q3)
+            {
+                System.Diagnostics.Process.Start("https://best.aliexpress.com");
+                l2.Text = Convert.ToString("Открываю Aliexpress");
+            }
+            if (l1.Text == q4)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com/intl/ru/gmail/about/#");
+                l2.Text = Convert.ToString("Открываю Gmail");
+            }
+            if (l1.Text == q5)
+            {
+
+                System.Diagnostics.Process.Start("https://www.google.com.ua/maps");
+
+                l2.Text = Convert.ToString("Открываю Google maps");
+            }
+            if (l1.Text == q6)
+            {
+                System.Diagnostics.Process.Start("https://auto.ria.com/");
+                l2.Text = Convert.ToString("Открываю Auto.ria");
+            }
+            if (l1.Text == q7)
+            {
+                Random rnd = new Random();
+                int d = rnd.Next(1, 3);
+                if (d == 3)
+                {
+                    l2.Text = Convert.ToString("КХм");
+                }
+                if (d == 2)
+                {
+                    l2.Text = Convert.ToString("Если не считать что я робот,то да!");
+                }
+                if (d == 1)
+                {
+                    l2.Text = Convert.ToString("Конечно, но я не могу!");
+                }
+            }
+            if (l1.Text == q8)
+            {
+                Random saq = new Random();
+                int d = saq.Next(1, 3);
+                if (d == 3)
+                {
+                    l2.Text = Convert.ToString("КХм");
+                }
+                if (d == 2)
+                {
+                    l2.Text = Convert.ToString("Екатерина");
+                }
+                if (d == 1)
+                {
+                    l2.Text = Convert.ToString("Я это ты но с будущего");
+                }
+            }
+            if (l1.Text == q9)
+            {
+                System.Diagnostics.Process.Start("https://auto.ru");
+                l2.Text = Convert.ToString("Открываю Auto.ru");
+            }
+            if (l1.Text == q10)
+            {
+                Environment.Exit(0);
+            }
+            if (l1.Text == w1)
+            {
+                System.Diagnostics.Process.Start("https://www.reddit.com/");
+                l2.Text = Convert.ToString("Открываю Reddit");
+            }
+            if (l1.Text == w2)
+            {
+                System.Diagnostics.Process.Start("https://www.instagram.com");
+                l2.Text = Convert.ToString("Открываю Instagram");
+            }
+            if (l1.Text == w3)
+            {
+                System.Diagnostics.Process.Start("https://www.youtube.com");
+                l2.Text = Convert.ToString("Открываю YouTube");
+            }
+            if (l1.Text == w4)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com/search?q=%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C+%D1%84%D0%B8%D0%BB%D1%8C%D0%BC%D1%8B&oq=%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C+%D1%84%D0%B8%D0%BB%D1%8C%D0%BC%D1%8B&aqs=chrome..69i57j0l5.819j0j7&sourceid=chrome&ie=UTF-8");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == w5)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com/search?q=%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C+%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D1%8B&oq=%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C+%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D1%8B+&aqs=chrome..69i57j0l5.4833j0j4&sourceid=chrome&ie=UTF-8");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == w6)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com/search?safe=active&ei=IHGBXOrrDYvTkwXVxYDgAQ&q=%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C+%D0%BC%D1%83%D0%BB%D1%8C%D1%82%D1%84%D0%B8%D0%BB%D1%8C%D0%BC%D1%8B&oq=%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C+%D0%BC%D1%83%D0%BB%D1%8C%D1%84&gs_l=psy-ab.1.0.0i10l10.38189.39897..41124...0.0..0.93.412.5......0....1..gws-wiz.......0i71j0i131j0j0i3.JM6xypsdmhk");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == w7)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com/search?q=%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C+%D0%BA%D0%BB%D0%B8%D0%BF%D1%8B&oq=%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C+%D0%BA&aqs=chrome.1.69i57j0l5.3573j0j4&sourceid=chrome&ie=UTF-8");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == w8)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com/search?safe=active&ei=_nGBXN29EoyVsAf3krmYCQ&q=%D1%81%D0%BB%D1%83%D1%88%D0%B0%D1%82%D1%8C+%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D1%83&oq=%D1%81%D0%BB%D1%83%D1%88%D0%B0%D1%82&gs_l=psy-ab.1.0.0i131i67j0i67l4j0i131i67j0i67l3j0.33842.36595..37276...2.0..0.154.875.8j1......0....1..gws-wiz.....0..0i131j0i10i1.mp1uFHGPpcY");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == w9)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com/search?safe=active&ei=U3KBXK2XJ5HTsAe39YVA&q=%D0%A1%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C+%D0%B0%D0%BD%D0%B8%D0%BC%D0%B5&oq=%D0%A1%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C+%D0%B0%D0%BD%D0%B8%D0%BC%D0%B5&gs_l=psy-ab.3..0i131j0j0i67j0j0i67l2j0l2j0i67j0.2718.5731..6010...0.0..0.165.1236.12j2......0....1..gws-wiz.......0i71.Jjw6kieBvZ8");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == w10)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com/search?safe=active&hl=ru-UA&authuser=0&ei=PHOBXIG5DYL1kwWcnYxg&q=%D0%A1%D0%BB%D1%83%D1%88%D0%B0%D1%82%D1%8C+%D1%80%D1%83%D1%81%D1%81%D0%BA%D1%83%D1%8E+%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D1%83&oq=%D0%A1%D0%BB%D1%83%D1%88%D0%B0%D1%82%D1%8C+%D1%80%D1%83%D1%81%D1%81%D0%BA%D1%83%D1%8E+%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D1%83&gs_l=psy-ab.12..0i131i67j0l9.1780.2038..3392...0.0..0.99.191.2......0....1..gws-wiz.......0i71j0i13.SQIN3wDGLAw");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == w11)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com/search?safe=active&hl=ru-UA&authuser=0&ei=PHOBXIG5DYL1kwWcnYxg&q=%D0%A1%D0%BB%D1%83%D1%88%D0%B0%D1%82%D1%8C+%D1%80%D1%83%D1%81%D1%81%D0%BA%D1%83%D1%8E+%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D1%83&oq=%D0%A1%D0%BB%D1%83%D1%88%D0%B0%D1%82%D1%8C+%D1%80%D1%83%D1%81%D1%81%D0%BA%D1%83%D1%8E+%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D1%83&gs_l=psy-ab.12..0i131i67j0l9.1780.2038..3392...0.0..0.99.191.2......0....1..gws-wiz.......0i71j0i13.SQIN3wDGLAw");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+
+
+            if (l1.Text == e1)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com.ua/search?client=opera&q=%D0%A4%D0%B8%D0%BB%D1%8C%D0%BC%D1%8B&sourceid=opera&ie=UTF-8&oe=UTF-8");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == e2)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com.ua/search?client=opera&hs=acg&ei=AA2FXIulOYPPwQLq9YzACw&q=%D0%A1%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D1%8B&oq=%D0%A1%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D1%8B&gs_l=psy-ab.3..0i67l5j0i131j0i67l2j0j0i67.32099.34315..34783...0.0..0.196.1268.0j7......0....1..gws-wiz.......0i71j0i131i67.JEv7BrvP9tY");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == e3)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com.ua/search?client=opera&hs=KSh&ei=mHaBXPH1DYTPwQKGrbSQCw&q=%D0%9C%D1%83%D0%BB%D1%8C%D1%82%D1%84%D0%B8%D0%BB%D1%8C%D0%BC%D1%8B&oq=%D0%9C%D1%83%D0%BB%D1%8C%D1%82%D1%84%D0%B8%D0%BB%D1%8C%D0%BC%D1%8B&gs_l=psy-ab.3..0i67j0j0i67l2j0i131j0i131i67j0i67l3j0.1584.1881..2461...0.0..0.129.215.1j1......0....1..gws-wiz.......0i71j0i7i10i30.yd87KXfxxRM");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == e4)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com.ua/search?client=opera&hs=y71&ei=rXaBXMDaGcrdwQLC0K24CA&q=%D0%90%D0%BD%D0%B8%D0%BC%D0%B5&oq=%D0%90%D0%BD%D0%B8%D0%BC%D0%B5&gs_l=psy-ab.3..0i131i67j0i67l8j0i131.1101.1427..2028...0.0..0.91.171.2......0....1..gws-wiz.......0.9CZ3ogIlWj4");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == e5)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com.ua/search?client=opera&hs=2Sh&ei=xHaBXKOUAsjWwQLyxIrgCw&q=%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B0%D1%8F+%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0&oq=%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B0%D1%8F+%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0&gs_l=psy-ab.12..0i67l2j0j0i131j0i67l5j0.1143.1572..2870...0.0..0.91.180.2......0....1..gws-wiz.......0i71j0i13.T0-gpButttE");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == e6)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com.ua/search?client=opera&hs=b81&ei=1HaBXO-CEY3PwQKI8oe4DA&q=%D0%97%D0%B0%D1%80%D1%83%D0%B1%D0%B5%D0%B6%D0%BD%D0%B0%D1%8F+%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0&oq=%D0%97%D0%B0%D1%80%D1%83%D0%B1%D0%B5%D0%B6%D0%BD%D0%B0%D1%8F+%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0&gs_l=psy-ab.3..0i131i67j0i131j0l2j0i67l3j0l3.1908.2284..2739...0.0..0.97.186.2......0....1..gws-wiz.......0i71j0i13.Wnjy5hbfQxA");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == e7)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com/search?q=%D0%9E%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD+%D0%B8%D0%B3%D1%80%D1%8B&oq=%D0%9E%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD+%D0%B8%D0%B3%D1%80%D1%8B&aqs=chrome..69i57j0l5.3706j0j7&sourceid=chrome&ie=UTF-8");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == e8)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com/search?safe=active&ei=lgeFXPj_MYWCk74PpKmyWA&q=%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80+%D0%B2%D0%B0%D0%BB%D1%8E%D1%82&oq=%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80+%D0%B2%D0%B0%D0%BB%D1%8E%D1%82&gs_l=psy-ab.3..0i71l8.0.0..35805...0.0..0.0.0.......0......gws-wiz.GOayX3cK6vE");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == e9)
+            {
+                System.Diagnostics.Process.Start("https://sinoptik.ua/%D1%80%D0%BE%D1%81%D1%81%D0%B8%D1%8F");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == e10)
+            {
+                System.Diagnostics.Process.Start("https://sinoptik.ua/");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == e11)
+            {
+                System.Diagnostics.Process.Start("https://www.gismeteo.ua/catalog/belarus/");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+
+
+            if (l1.Text == r1)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com/search?safe=active&ei=JQqFXNfJHvvQmwX4mreACQ&q=%D0%9F%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D1%87%D0%B8%D0%BA&oq=%D0%9F%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D1%87%D0%B8%D0%BA&gs_l=psy-ab.3..0i131i67j0i67j0l8.18853.19184..19738...0.0..0.278.466.0j1j1......0....1..gws-wiz.......0i71j0i10i67j0i7i10i30j0i10.QtsfJOTanP0");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == r2)
+            {
+                System.Diagnostics.Process.Start("https://www.google.com/search?q=%D0%A4%D0%BE%D1%82%D0%BE%D1%88%D0%BE%D0%BF+%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD&oq=%D1%84%D0%BE%D1%82%D0%BE&aqs=chrome.2.69i57j69i61j69i59j69i61j69i59l2.2267j0j4&sourceid=chrome&ie=UTF-8");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == r3)
+            {
+                System.Diagnostics.Process.Start("https://vk.com/");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+            if (l1.Text == r4)
+            {
+
+                Form6 frm = new Form6();
+                frm.Show();
+               
+            }
+            if (l1.Text == r5)
+            {
+                System.Diagnostics.Process.Start("https://www.gismeteo.ua/catalog/belarus/");
+                l2.Text = Convert.ToString("Вот всё по этому запросу!");
+            }
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            notifyIcon1.BalloonTipTitle = "ИМЯ";
+            notifyIcon1.BalloonTipText = "СДЕЛАНО";
+            notifyIcon1.Text = "ИМЯ";
+
+            l2 = label2;
+            string s = DateTime.Now.ToString("dd MMMM yyyy | HH:mm:ss");
+            l1 = label1;
+
+            System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("ru-ru");
+            SpeechRecognitionEngine sre = new SpeechRecognitionEngine(ci);
+            sre.SetInputToDefaultAudioDevice();
+
+            sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(sre_SpeechRecognized);
+            Choices word = new Choices();
+
+            word.Add(new string[] { "Здраствуй", "Выйди из программы!", "Майкрософт", "Время?", "Калькулятор!", "Блокнот!", "Браузер!" 
+            ,"Фейсбук","Хочу рисовать!","Яндекс","Википедия","Шутка","Твитер","Записка","Джум!","Алиекспрес!","Электронная почта!","Карта!"
+            ,"АвтоРио!","Любишь мечтать?","Кто ты?!","АвтоРу!","Выйди!","Реддит!","Инстаграм!","Ютуб!","Смотреть фильмы!","Смотреть сериалы!"
+            ,"Смотреть мультфильмы","Смотреть клипы!","Слушать музыку!","Смотреть аниме!","Слушать русскую музыку!","Слушать зарубежную музыку!"
+            ,"Фильмы!","Сериалы!","Мультфильмы!","Аниме!","Русская музыка","Зарубежная музыка!","Онлайн игры!","Калькулятор валют!"
+            ,"Погода в России","Погода в Украине!","Погода в Белоруссии!","Переводчик!","Фотошоп онлайн!","ВКонтакте!","Таймер!"
+            });
+
+            GrammarBuilder gb = new GrammarBuilder();
+            gb.Append(word);
+            Grammar g = new Grammar(gb);
+            sre.LoadGrammar(g);
+            sre.RecognizeAsync(RecognizeMode.Multiple);
+        }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void c_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lineShape2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void notifyIcon1_MouseDoubleClick_1(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            notifyIcon1.Visible = false;
+            WindowState = FormWindowState.Normal;
+        }
+
+        private void Form2_Resize(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+                notifyIcon1.Visible = true;
+                notifyIcon1.ShowBalloonTip(1000);
+            }
+            else if (FormWindowState.Normal == this.WindowState)
+            { notifyIcon1.Visible = false; }
+        }
+
+        private void выйтиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void открытьПолностьюToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Show();
+            notifyIcon1.Visible = false;
+            WindowState = FormWindowState.Normal;
+        }
+       
+    }
+}
